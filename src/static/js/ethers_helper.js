@@ -57,6 +57,9 @@ const pageNetwork = function() {
   if (network.toLowerCase() === 'hoo') {
     return window.NETWORKS.HOO
   }
+  if (network.toLowerCase() === 'kava') {
+    return window.NETWORKS.KAVA
+  }
   if (network.toLowerCase() === 'astar') {
     return window.NETWORKS.ASTAR
   }
@@ -3304,6 +3307,9 @@ function getErc20Prices(prices, pool, chain="eth") {
     case "hoo":
       poolUrl=`https://hooscan.com/token/${pool.address}`;
       break;
+    case "kava":
+      poolUrl=`https://explorer.kava.io/token/${pool.address}`;
+      break;
     case "evmos":
       poolUrl=`https://evm.evmos.org/address/${pool.address}`;
       break;
@@ -3984,6 +3990,9 @@ async function printSynthetixPool(App, info, chain="eth", customURLs) {
       case "hoo":
         _print(`<a target="_blank" href="https://hooscan.com/address/${info.stakingAddress}#code">Hoo Scan</a>`);
         break;
+      case "kava":
+        _print(`<a target="_blank" href="https://explorer.kava.io/address/${info.stakingAddress}#code">Kava Scan</a>`);
+        break;
       case "evmos":
         _print(`<a target="_blank" href="https://evm.evmos.org/address/${info.stakingAddress}#code">EVMOS Explorer</a>`);
         break;
@@ -4174,6 +4183,8 @@ function getChainExplorerUrl(chain, address){
       return `https://ftmscan.com/token/${address}`;
     case "hoo" :
       return `https://hooscan.com/token/${address}`;
+    case "kava" :
+      return `https://explorer.kava.io/token/${address}`;
     case "evmos" :
       return `https://evm.evmos.org/address/${address}`;
     case "astar" :
