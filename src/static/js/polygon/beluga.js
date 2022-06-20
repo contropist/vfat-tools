@@ -76,7 +76,7 @@ $(function() {
       const isVaultLPToken = vault.name.toLowerCase().includes("LP")
       let lpToken
       if(isVaultLPToken == true) {
-         lpToken = await getMaticUniPool(App, 
+         lpToken = await getMaticUniPool(App, vault.address, contractAddress);
       }
       var newTokenAddresses = vault.tokens.filter(x => !getParameterCaseInsensitive(tokens, x));
       for (const address of newTokenAddresses) {
